@@ -11,12 +11,7 @@ set "THIS_FILE_NAME=initial.cmd"
 cd %STARTUP_PATH%
 
 @REM write pyloads to startup
-(
-    echo MsgBox "Line 1" ^& vbCrlf ^& "lin 2", 262192, "Title"
-)> popus.vbs
-
-@REM run a payload
-WScript "%STARTUP_PATH%"\popus.vbs
+(echo MsgBox "Line 1" ^& vbCrlf ^& "lin 2", 262192, "Title")> popus.vbs
 
 @REM go back and delete ourselves
 cd %INITIAL_PATH%
